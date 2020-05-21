@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery 연습하고 가기!</title>
+    <!-- JQuery를 import 합니다 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style type="text/css">
+        div.question-box {
+            margin: 10px 0 20px 0;
+        }
+
+        table {
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            padding: 10px;
+            border: 1px solid;
+        }
+        .red {
+            color: red;
+            font-weight: bold;
+
+        }
+    </style>
+
+    <script>
+        function q1() {
+            $.ajax({
+                type: "GET",
+                url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/bikeList/1/99",
+                data: {},
+
+                success: function (response) {
+                    let rentBikeStatus = response['rentBikeStatus'];
+                    let list = rentBikeStatus['row'];
+
+                   
+                    $('#names-q1').html('');
+
+                    for (let i = 0; i < list.length; i++) {
+                        let obj = list[i];
+                        let name = obj['stationName'];
+                        let rackcount = obj['rackTotCnt'];
+                        let bikecount = obj['parkingBikeTotCnt'];
+
+                        if (bikecount < 5) {
+                            //let html으로 코드를 작성한다면 주소를 새로 할당하므로 코드 블럭 안에서만 되고, 이 블럭을 빠져나가면 그 주소를 없어진다.
+                            html = `<tr>
+                                        <td><span class = "red">${name}</span></td>
+                                        <td><span class = "red">${rackcount}</span></td>
+                                        <td><span class = "red">${bikecount}</span></td>
+                                    </tr>`;
+                                    //span으로 감싸면, 줄이 아닌 글자만 빨간색으로 할 수 있다!!
+                                
+                        } else {
+                            html = `<tr>
+                                        <td>${name}</td>
+                                        <td>${rackcount}</td>
+                                        <td>${bikecount}</td>
+                                    </tr>`;
+                        }
+
+   
+
+
+                        $('#names-q1').append(html);
+
+                    }
+
+                }
+
+            })
+            // 여기에 코드를 입력하세요
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>jQuery + Ajax의 조합을 연습하자!</h1>
+
+    <hr />
+
+    <div class="question-box">
+        <h2>2. 서울시 OpenAPI(실시간 따릉기 현황)를 이용하기</h2>
+        <p>모든 위치의 따릉이 현황을 보여주세요</p>
+        <p>업데이트 버튼을 누를 때마다 지웠다 새로 씌여져야 합니다.</p>
+        <button onclick="q1()">업데이트</button>
+        <table>
+            <thead>
+                <!-- 머리말 -->
+
+                <tr>
+                    <!-- 테이블 row의 약자 -->
+                    <th>거치대 위치</th>
+                    <th>거치대 수</th>
+                    <th>현재 거치된 따릉이 수</th>
+                </tr>
+            </thead>
+            <tbody id="names-q1">
+                <tr>
+                    <td>102. 망원역 1번출구 앞</td>
+                    <td>22</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>103. 망원역 2번출구 앞</td>
+                    <td>16</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>104. 합정역 1번출구 앞</td>
+                    <td>16</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

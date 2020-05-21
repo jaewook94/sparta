@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>스파르타코딩클럽 | 자바스크립트 복습</title>
+    <script>
+        let num = 0;
+        function handleClick() {
+            num += 1;
+
+            if (num % 2 == 0) {
+                console.log("짝짝짝")
+                alert("짝짝짝")
+            } else {
+                console.log("홀홀홀")
+            }
+
+        }
+        
+    </script>
+    <style>
+        .wrap {
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <button id="btn" onclick="handleClick()">이 버튼을 눌러보세요</button>
+    </div>
+
+</body>
+
+</html>
