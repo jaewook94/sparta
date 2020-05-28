@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <title>아름다운 거실 등 | Beautiful Light</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        .wrap {
+            width: 500px;
+            margin: auto;
+        }
+
+        .btn {
+            width: 200px;
+            margin-left: 150px;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .exchange {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+
+
+
+</head>
+
+
+<body>
+
+    <div class="wrap">
+        <div class="card mb-3">
+            <img src="https://huvitled.co.kr/web/product/big/201705/4535_shop1_522649.jpg" class="card-img-top"
+                alt="...">
+            <div class="card-body">
+                <h2 class="card-title">거실에 은은함을 선물하세요.</h2>
+                <p class="card-text">Beautiful Light의 대표 조명등입니다. 은은한 아름다움으로 여러분들의 거실을 느낌 있는 무도회장으로 연출해보세요.</p>
+                <h4 class="card-title">가격 : 39,800원/개</h4>
+                <h5 class="card-title">가격 : 350,000원/10개 </h4>
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+            </div>
+        </div>
+        <h3 class="card-title">주문하기</h3> <br>
+        <div class="exchange">
+            <!-- <h5>달러-원 환율 : </h5> -->
+            <p id="dollartowon">
+                달러-원 환율 :
+            </p>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">주문자 성함</span>
+            </div>
+            <input type="text" class="form-control" placeholder="성함을 입력해주세요." aria-label="Username"
+                aria-describedby="basic-addon1" id="ordername">
+        </div>
+
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">수량</label>
+            </div>
+            <select class="custom-select" id="number">
+                <!-- 밑에 selected 코드 선생님이 고쳐주신 부분 -->
+                <option value="" selected>-- 수량을 선택해주세요. --</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="3">4</option>
+                <option value="3">5</option>
+                <option value="3">6</option>
+                <option value="3">7</option>
+                <option value="3">8</option>
+                <option value="3">9</option>
+                <option value="3">10</option>
+
+            </select>
+
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">주소</span>
+            </div>
+            <input type="text" class="form-control" placeholder="주소를 입력해주세요." aria-label="Username"
+                aria-describedby="basic-addon1" id="address">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">전화번호</span>
+            </div>
+            <input type="text" class="form-control" placeholder="전화번호를 입력해주세요." aria-label="Username"
+                aria-describedby="basic-addon1" id="phone">
+        </div>
+
+        <button onclick="order()" type="button" class="btn btn-primary">주문하기</button>
+    </div>
+
+
+
+    <script>
+
+        function order() {
+            //let regExp = /(0[3-9]{1};[0-9]{1})([0-9]{3,4})([0-9]{4})$/
+            let blank1 = $('#ordername').val();
+            let blank2 = $('#number').val();
+            let blank3 = $('#address').val();
+            let blank4 = $('#phone').val();
+            if (blank1 == '') {
+                alert('성함을 입력해주세요!');
+
+            } else if (blank2 == '') {
+                alert('수량을 선택해주세요!');
+            } else if (blank3 == '') {
+                alert('주소를 입력해주세요!');
+            } else if (blank4 == '') {
+                alert('전화번호를 입력해주세요!');
+            } else if (blank4.length = 13 && blank4.includes('-')) {
+                alert('주문이 완료되었습니다!');
+            } else {
+                alert('휴대폰번호 입력 형식이 틀립니다!\n010-0000-0000형식으로 입력해주세요!');
+
+            }
+        }
+        // 유효성 체크 포기
+        // function isMobile(blank4) {
+        //     let p = blank4.split('-').join('');
+        //     var regExp = /(01[016789])([1-9]{1}[0-9]{2,3})([0-9]{4})$/;
+        //     var myArray;
+        //     if (regExp.test(blank4)) {
+        //         myArray = regExp.exec(blank4);
+        //         // console.log(myArray[1]); 
+        //         // console.log(myArray[2]); 
+        //         // console.log(myArray[3]); 
+        //         return true;
+        //     } else {
+        //         return false;
+        //     }
+        // }
+
+        // alert('로딩이 완료되었습니다!')
+        listing();
+            //명시적인 용도
+        function listing() {
+            $.ajax({
+                type: "GET",
+                url: "https://api.manana.kr/exchange/rate.json",
+                data: {},
+                success: function (response) {
+                    $('#dollartowon').html();
+                    let dollar = response[1]['rate'];
+                    $('#dollartowon').text(`달러-원 환율: ${dollar}`);
+                }
+            })
+        }
+
+    </script>
+
+</body>
+
+</html>
