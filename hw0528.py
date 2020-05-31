@@ -10,18 +10,27 @@ songs = soup.select('#body-content > div.newest-list > div > table > tbody > tr'
 #music-list-wrap > table > tbody > tr
 #body-content > div.newest-list > div > table > tbody > tr:nth-child(1) > td.info > a.title.ellipsis
 for song in songs:
-    a = a+1
-    # td.title > div > a
+    # a = a+1
     rank_tag = song.select_one('td.number')
+    span_elements = rank_tag.find_all("span")
+    for span in span_elements:
+        span.extract()  #불필요한 부분(span)을 빼는 과정
+    
     title_tag = song.select_one('td.info > a.title.ellipsis')
     artist_tag = song.select_one('td.info > a.artist.ellipsis')
+    
+    
 
     if title_tag is not None:
-        # rank = rank_tag.text
-        rank = a #이 부분이 문제...그냥 1에서 50까지 줌..
-        title_row = title_tag.text #공백이 아직 존재하는 row title
-        title = title_row.lstrip() #구글링 lstrip은 왼쪽 공백을 모두 제거
+        # rank = a # 1에서 50까지 줌..(수정 전!)
+        rank_with_blank = rank_tag.text
+        rank = rank_with_blank.rstrip() #오른쪽 공백 제거
+
+        title_with_blank = title_tag.text 
+        title = title_with_blank.lstrip() #왼쪽 공백 제거
+
         artist = artist_tag.text
+        
         print(rank, title, "| By.",artist)
         # print({:<10} artist.format(rank))
                                             
