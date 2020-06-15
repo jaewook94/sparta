@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Song+Myung&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <title>Introduce</title>
+</head>
+
+<body>
+    <div class="title">
+        <h1>우리학교 냥님을<br>소개합니다.</h1>
+    </div>
+    <div class="wrap">
+        <div class="subtitle">
+            <h5><br>냥님의 정보를 작성해주세요.</h5>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-11">
+                <label for="">냥님 이름</label>
+                <input type="text" class="form-group" id="cat_name">
+            </div>
+
+            <div class="col12">
+                <select class=" custom-select" id="cat_gender">
+                    <option selected>냥님 성별</option>
+                    <option value="1">남자</option>
+                    <option value="2">여자</option>
+                    <option value="3">중성</option>
+                    <option value="3">모름</option>
+                </select>
+            </div>
+        </div>
+
+    <div class="row">
+        <div class="col">
+            <label for="">냥님 상태</label>
+            <textarea class="form-control" aria-label="With textarea" id="cat_condition"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="">냥님 한줄평</label>
+            <input type="text" class="form-group" id="cat_else">
+        </div>
+    </div>
+
+
+    <a class="btn btn-success" href="/gallery">냥님 보고하기</a>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+.mytitle {
+    font-family: 'Song Myung', serif;
+    color: black;
+}
+header {
+    height: 75px;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+/* .menu {}
+.menu li{} */
+.menu a {
+    line-height: 75px;
+    color: white;
+    padding: 0 15px;
+    display: block;
+}
+.wrapper {
+    width: 1170px;
+    margin: 0 auto;
+}
+.bd-example {
+    width: 900px;
+    height: 600px;
+    position: center;
+    margin: 0 auto;
+}
+body {
+    text-align: left;
+    width: 1000px;
+    position: center;
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+.title {
+    font-family: 'Song Myung', serif;
+}
+.subtitle {
+    font-family: 'Nanum Myeongjo', serif;
+}
+.btn {
+    font-family: 'Nanum Myeongjo', serif;
+}
+.carousel-item {
+    max-width : 1280px;
+}
+.footer {
+    color: #bbb;
+    font-size: 0.9rem;
+    margin: 0 0 2rem 0;
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
+}
